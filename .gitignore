@@ -20,3 +20,25 @@ ipynb/\.ipynb_checkpoints/
 *.pkl
 
 20news/KaggleWord2VecUtility\.pyc
+
+japanese-dataset/livedoor-news-corpus/dokujo-tsushin/
+
+japanese-dataset/livedoor-news-corpus/it-life-hack/
+
+japanese-dataset/livedoor-news-corpus/kaden-channel/
+
+japanese-dataset/livedoor-news-corpus/livedoor-homme/
+
+japanese-dataset/livedoor-news-corpus/movie-enter/
+
+japanese-dataset/livedoor-news-corpus/peachy/
+
+japanese-dataset/livedoor-news-corpus/smax/
+
+japanese-dataset/livedoor-news-corpus/sports-watch/
+
+japanese-dataset/livedoor-news-corpus/topic-news/
+
+japanese-dataset/livedoor-news-corpus/CHANGES\.txt
+
+japanese-dataset/livedoor-news-corpus/README\.txt
