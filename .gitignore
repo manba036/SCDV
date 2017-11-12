@@ -42,3 +42,5 @@ japanese-dataset/livedoor-news-corpus/topic-news/
 japanese-dataset/livedoor-news-corpus/CHANGES\.txt
 
 japanese-dataset/livedoor-news-corpus/README\.txt
+
+japanese-dataset/livedoor-news-corpus/model/200features_20minwords_10context_len2alldata
