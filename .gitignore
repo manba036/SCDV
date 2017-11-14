@@ -44,3 +44,17 @@ japanese-dataset/livedoor-news-corpus/CHANGES\.txt
 japanese-dataset/livedoor-news-corpus/README\.txt
 
 japanese-dataset/livedoor-news-corpus/model/200features_20minwords_10context_len2alldata
+
+ipynb/livedoor-new-corpus-test-Copy1\.py
+
+ipynb/livedoor-new-corpus-test\.ipynb
+
+japanese-dataset/livedoor-news-corpus/model/50features_20minwords_10context_len2alldata
+
+japanese-dataset/livedoor-news-corpus/for-fasttext/fasttext_model_2000dim\.bin
+
+japanese-dataset/livedoor-news-corpus/for-fasttext/fasttext_model_2000dim\.vec
+
+japanese-dataset/livedoor-news-corpus/for-fasttext/fasttext_model_200dim\.bin
+
+japanese-dataset/livedoor-news-corpus/for-fasttext/fasttext_model_200dim\.vec
