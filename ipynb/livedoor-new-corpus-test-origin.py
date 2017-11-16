@@ -76,7 +76,7 @@ for review in tqdm(df["news"]):
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s',    level=logging.INFO)
 
-num_features = 50     # Word vector dimensionality
+num_features = 200     # Word vector dimensionality
 min_word_count = 20   # Minimum word count
 num_workers = 40       # Number of threads to run in parallel
 context = 10          # Context window size
@@ -94,6 +94,12 @@ model.save("../japanese-dataset/livedoor-news-corpus/model/"+model_name)
 endmodeltime = time.time()
 
 print ("time : ", endmodeltime-start)
+
+
+# In[ ]:
+
+
+model.wv.save_word2vec_format("/Users/01018534/Downloads/testw2v.txt",binary=False)
 
 
 # In[ ]:
@@ -229,7 +235,7 @@ def create_cluster_vector_and_gwbowv(prob_wordvecs, wordlist, word_centroid_map,
 # In[ ]:
 
 
-num_features = 50     # Word vector dimensionality
+num_features = 200     # Word vector dimensionality
 min_word_count = 20   # Minimum word count
 num_workers = 40       # Number of threads to run in parallel
 context = 10          # Context window size
@@ -318,7 +324,33 @@ for pair in zip(featurenames, idf):
     word_idf_dict[pair[0]] = pair[1]
     
 # Pre-computing probability word-cluster vectors.
-prob_wordvecs = get_probability_word_vectors(featurenames, word_centroid_map, num_clusters, word_idf_dict)
+prob_wordvecs = get_probability_word_vectors(featurenames, model,word_centroid_map, num_clusters, word_idf_dict)
+
+
+# In[ ]:
+
+
+from gensim.models import KeyedVectors
+## for gensim keyedvectors
+file = open('../japanese-dataset/livedoor-news-corpus/model/temp2.txt', 'w')
+string_list = [str(len(prob_wordvecs)),str(len(list(prob_wordvecs.values())[0]))]
+string_list.append("\n")
+file.writelines(" ".join(string_list))
+for key,value in tqdm(prob_wordvecs.items()):
+    string_list = []
+    string_list.append(key)
+    for i in value:
+        string_list.append(str(i))
+    string_list.append("\n")
+    file.writelines(" ".join(string_list))
+file.close()
+
+
+# In[ ]:
+
+
+word2vec_weighted = KeyedVectors.load_word2vec_format("../japanese-dataset/livedoor-news-corpus/model/temp2.txt",binary=False)
+word2vec_weighted.save("../japanese-dataset/livedoor-news-corpus/model/vector-response-test/word2vec_weighted.model")
 
 
 # In[ ]:
@@ -489,6 +521,13 @@ print ("Time taken:", time.time() - start, "\n")
 # In[ ]:
 
 
+# from gensim.models.wrappers import FastText
+# fasttext_model = FastText.load_fasttext_format('../japanese-dataset/livedoor-news-corpus/for-fasttext/fasttext_model_200dim')
+
+
+# In[ ]:
+
+
 ## fasttext
 import fasttext
 fasttext_model = fasttext.skipgram('../japanese-dataset/livedoor-news-corpus/for-fasttext/corpus.txt',
@@ -616,6 +655,37 @@ num_features = 200
 
 # Pre-computing probability word-cluster vectors.
 prob_wordvecs = get_probability_word_vectors(featurenames, fasttext_model_200,word_centroid_map, num_clusters, word_idf_dict)
+
+
+# In[ ]:
+
+
+## for gensim keyedvectors
+file = open('../japanese-dataset/livedoor-news-corpus/model/temp3.txt', 'w')
+string_list = [str(len(prob_wordvecs)),str(len(list(prob_wordvecs.values())[0]))]
+string_list.append("\n")
+file.writelines(" ".join(string_list))
+for key,value in tqdm(prob_wordvecs.items()):
+    string_list = []
+    string_list.append(key)
+    for i in value:
+        string_list.append(str(i))
+    string_list.append("\n")
+    file.writelines(" ".join(string_list))
+file.close()
+
+
+# In[ ]:
+
+
+fasttext_weighted = KeyedVectors.load_word2vec_format("../japanese-dataset/livedoor-news-corpus/model/temp3.txt",binary=False)
+fasttext_weighted.save("../japanese-dataset/livedoor-news-corpus/model/vector-response-test/fasttext_weighted.model")
+
+
+# In[ ]:
+
+
+pickle.dump(prob_wordvecs,open("../japanese-dataset/livedoor-news-corpus/model/prob_wordvecs_fasttext.pkl","wb"))
 
 
 # In[ ]:

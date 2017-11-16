@@ -83,6 +83,65 @@ for key,row in tqdm(poincare.iterrows()):
 # In[ ]:
 
 
+len(list(poincare_vectors.values())[0])
+
+
+# In[ ]:
+
+
+a = []
+a += "hoge"
+a += "sage"
+a
+
+
+# In[ ]:
+
+
+## for gensim keyedvectors
+file = open('../japanese-dataset/livedoor-news-corpus/model/temp.txt', 'w')
+string_list = [str(len(poincare_vectors)),str(len(list(poincare_vectors.values())[0]))]
+string_list.append("\n")
+file.writelines(" ".join(string_list))
+for key,value in poincare_vectors.items():
+    string_list = []
+    string_list.append(key)
+    for i in value:
+        string_list.append(str(i))
+    string_list.append("\n")
+    file.writelines(" ".join(string_list))
+file.close()
+
+
+# In[ ]:
+
+
+from gensim.models import KeyedVectors
+poincare_vec = KeyedVectors.load_word2vec_format("../japanese-dataset/livedoor-news-corpus/model/temp.txt",binary=False)
+
+
+# In[ ]:
+
+
+poincare_vec.most_similar("HDMI")
+
+
+# In[ ]:
+
+
+poincare_vec.save("../japanese-dataset/livedoor-news-corpus/model/vector-response-test/poincare_vec.model")
+
+
+# In[ ]:
+
+
+import pickle
+pickle.dump(poincare_vectors,open("../japanese-dataset/livedoor-news-corpus/model/poincare_vectors.pkl","wb"))
+
+
+# In[ ]:
+
+
 ## visualization poincare embeddings
 skip=0
 limit=241 
@@ -293,6 +352,37 @@ for pair in zip(featurenames, idf):
     
 # Pre-computing probability word-cluster vectors.
 prob_wordvecs = get_probability_word_vectors_from_dict(featurenames, poincare_vectors,word_centroid_map, num_clusters, word_idf_dict)
+
+
+# In[ ]:
+
+
+pickle.dump(prob_wordvecs,open("../japanese-dataset/livedoor-news-corpus/model/prob_wordvecs_poincare.pkl","wb"))
+
+
+# In[ ]:
+
+
+## for gensim keyedvectors
+file = open('../japanese-dataset/livedoor-news-corpus/model/temp.txt', 'w')
+string_list = [str(len(prob_wordvecs)),str(len(list(prob_wordvecs.values())[0]))]
+string_list.append("\n")
+file.writelines(" ".join(string_list))
+for key,value in tqdm(prob_wordvecs.items()):
+    string_list = []
+    string_list.append(key)
+    for i in value:
+        string_list.append(str(i))
+    string_list.append("\n")
+    file.writelines(" ".join(string_list))
+file.close()
+
+
+# In[ ]:
+
+
+poincare_vec_weighted = KeyedVectors.load_word2vec_format("../japanese-dataset/livedoor-news-corpus/model/temp.txt",binary=False)
+poincare_vec_weighted.save("../japanese-dataset/livedoor-news-corpus/model/vector-response-test/poincare_vec_weighted.model")
 
 
 # In[ ]:

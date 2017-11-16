@@ -66,3 +66,7 @@ poincare-embeddings/work/poincare_embedding
 japanese-dataset/livedoor-news-corpus/poincare/embeddings\.tsv
 
 japanese-dataset/livedoor-news-corpus/poincare/corpus\.txt
+
+japanese-dataset/livedoor-news-corpus/model/vector-response-test/
+
+japanese-dataset/livedoor-news-corpus/model/vector-response-test\.zip
