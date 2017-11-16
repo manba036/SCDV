@@ -37,7 +37,7 @@ column_list = ["word2vec","word2vec_weighted","fasttext","fasttext_weighted","po
 
 
 import pandas as pd
-target_words = ["女性","男性","彼氏","ダイエット","ホテル",
+target_words = ["女性","男性","彼氏","ダイエット","ホテル","新しく",
                 "エンジニア","アップル","転職","無料","もうすぐ",
                 "終わり","コンビニ","確率",
                 "アンドロイド","アプリ","本田圭佑","サッカー","コピー"]
