@@ -1,14 +1,14 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 from gensim.models import KeyedVectors
 from gensim.models.wrappers.fasttext import FastText
 
 
-# In[ ]:
+# In[2]:
 
 
 ## load model
@@ -20,20 +20,20 @@ poincare_vec = KeyedVectors.load("../japanese-dataset/livedoor-news-corpus/model
 poincare_vec_weighted = KeyedVectors.load("../japanese-dataset/livedoor-news-corpus/model/vector-response-test/poincare_vec_weighted.model")
 
 
-# In[ ]:
+# In[3]:
 
 
 len(word2vec.most_similar("独身"))
 
 
-# In[ ]:
+# In[4]:
 
 
 model_list = [word2vec,word2vec_weighted,fasttext,fasttext_weighted,poincare_vec,poincare_vec_weighted]
 column_list = ["word2vec","word2vec_weighted","fasttext","fasttext_weighted","poincare_vec","poincare_vec_weighted"]
 
 
-# In[ ]:
+# In[5]:
 
 
 import pandas as pd
@@ -45,7 +45,7 @@ result = pd.DataFrame(target_words)
 result.columns = ["target_words"]
 
 
-# In[ ]:
+# In[6]:
 
 
 for name,model in zip(column_list,model_list):
@@ -59,7 +59,7 @@ for name,model in zip(column_list,model_list):
     result[name] = res
 
 
-# In[ ]:
+# In[7]:
 
 
 result
