@@ -79,6 +79,14 @@ $ python SCDV.py 300 100 sjm
 ```
 Use these scores to interpolate with the language model scores with interpolation parameter 0.5.
 
+#### Text classification of Japanese corpus with SCDV
+Try the following notebook to check text classification of Japanese corpus with SCDV.
+- **[livedoor-new-corpus-test.ipynb](https://github.com/manba036/SCDV/blob/develop/ipynb/livedoor-new-corpus-test.ipynb)**
+
+Sorry for using Japanese.  
+SCDVによる日本語コーパスのテキスト分類のもろもろについては、fufufukakakaさんの記事が参考になります。  
+- **[文書ベクトルをお手軽に高い精度で作れるSCDVって実際どうなのか日本語コーパスで実験した(EMNLP2017)](https://qiita.com/fufufukakaka/items/a7316273908a7c400868)**
+
 
 ## Requirements
 Minimum requirements:
