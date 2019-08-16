@@ -84,6 +84,8 @@ Use these scores to interpolate with the language model scores with interpolatio
 Start docker container for jupyter.
 
 ```sh
+git clone https://github.com/manba036/SCDV.git
+cd SCDV
 ./run_jupyter.sh
 ```
 
