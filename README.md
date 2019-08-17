@@ -92,7 +92,7 @@ cd SCDV
 Open jupyter in the browser from <http://127.0.0.1:8888/?token=>*token displayed in terminal*.  
 Try the following notebook to check text classification of Japanese corpus with SCDV.
 
-- **[SCDV/ipynb/livedoor-new-corpus-test.ipynb](https://github.com/manba036/SCDV/blob/develop/ipynb/livedoor-new-corpus-test.ipynb)**
+- **[SCDV/ipynb/livedoor-new-corpus-test-origin.ipynb](https://github.com/manba036/SCDV/blob/develop/ipynb/livedoor-new-corpus-test-origin.ipynb)**
 
 Sorry for using Japanese.  
 SCDVによる日本語コーパスのテキスト分類のもろもろについては、fufufukakakaさんの記事が参考になります。  

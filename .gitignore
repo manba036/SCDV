@@ -39,3 +39,5 @@ japanese-dataset/livedoor-news-corpus/\.ipynb_checkpoints/
 ipynb/alldoc_scdv_tsne\.csv
 ipynb/model\.bin
 japanese-dataset/livedoor-news-corpus/model/doc2vec\.model
+japanese-dataset/livedoor-news-corpus/model/temp2\.txt
+japanese-dataset/livedoor-news-corpus/model/temp3\.txt

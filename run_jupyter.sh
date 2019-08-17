@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ./japanese-dataset/livedoor-news-corpus/model/vector-response-test
+
 if [ ! -e "./japanese-dataset/livedoor-news-corpus/dokujo-tsushin" ]; then
   wget https://www.rondhuit.com/download/ldcc-20140209.tar.gz
   tar xvfz ldcc-20140209.tar.gz -C ./japanese-dataset/livedoor-news-corpus
